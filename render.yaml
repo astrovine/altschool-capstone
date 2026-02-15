@@ -9,7 +9,7 @@ services:
     name: course-platform-api
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt && alembic upgrade head
+    buildCommand: pip install -r requirements.txt && PYTHONPATH=/opt/render/project/src alembic upgrade head
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: DATABASE_URL
@@ -20,3 +20,5 @@ services:
         generateValue: true
       - key: PYTHON_VERSION
         value: 3.12.0
+      - key: PYTHONPATH
+        value: /opt/render/project/src
