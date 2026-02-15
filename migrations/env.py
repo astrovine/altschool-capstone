@@ -5,6 +5,7 @@ from alembic import context
 import asyncio
 
 from app.db.base import Base
+import app.models.user, app.models.course, app.models.enrollment, app.models.audit
 from app.config import settings
 
 config = context.config
